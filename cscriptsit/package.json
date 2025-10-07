@@ -1,0 +1,41 @@
+{
+  "name": "cscriptsit",
+  "displayName": "CScriptSIT Language Support",
+  "description": "Syntax highlighting and autocomplete for CScriptSIT (.sit) files",
+  "version": "1.1.0",
+  "publisher": "cscriptsit-dev",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:cscriptsit"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "cscriptsit",
+        "aliases": ["CScriptSIT", "cscriptsit"],
+        "extensions": [".sit"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "cscriptsit",
+        "scopeName": "source.cscriptsit",
+        "path": "./syntaxes/cscriptsit.tmLanguage.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "CScriptSIT Cool Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cscriptsit-dark-theme.json"
+      }
+    ]
+  }
+}
