@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- SIT text in teal, matching JS icon font style -->
+  <text x="16" y="21" 
+        font-family="Segoe UI, Arial, sans-serif" 
+        font-size="11" 
+        font-weight="700" 
+        text-anchor="middle" 
+        letter-spacing="0"
+        fill="#4EC9B0">SIT</text>
+</svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Just SIT text in teal, like JS logo style -->
+  <text x="16" y="20" 
+        font-family="Consolas, Monaco, monospace" 
+        font-size="10" 
+        font-weight="600" 
+        text-anchor="middle" 
+        letter-spacing="0.5"
+        fill="#4EC9B0">SIT</text>
+</svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- SIT text only, no background - Blue color -->
+  <text x="16" y="22" 
+        font-family="Arial, sans-serif" 
+        font-size="12" 
+        font-weight="bold" 
+        text-anchor="middle" 
+        fill="#569CD6">SIT</text>
+</svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- SIT text only, no background -->
+  <text x="16" y="22" 
+        font-family="Arial, sans-serif" 
+        font-size="12" 
+        font-weight="bold" 
+        text-anchor="middle" 
+        fill="#4EC9B0">SIT</text>
+</svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Document/File shape -->
+  <path d="M6 2h14l6 6v20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" 
+        fill="#4A5568" opacity="0.9"/>
+  
+  <!-- Folded corner -->
+  <path d="M20 2v6h6z" fill="#2D3748" opacity="0.7"/>
+  
+  <!-- SIT label badge at bottom -->
+  <rect x="6" y="22" width="20" height="8" rx="1" fill="#FF69B4"/>
+  <text x="16" y="27.5" font-family="Arial, sans-serif" font-size="6" 
+        font-weight="bold" text-anchor="middle" fill="white">SIT</text>
+  
+  <!-- Document lines -->
+  <line x1="8" y1="10" x2="18" y2="10" stroke="#9CA3AF" stroke-width="0.8" opacity="0.6"/>
+  <line x1="8" y1="13" x2="22" y2="13" stroke="#9CA3AF" stroke-width="0.8" opacity="0.6"/>
+  <line x1="8" y1="16" x2="20" y2="16" stroke="#9CA3AF" stroke-width="0.8" opacity="0.6"/>
+  <line x1="8" y1="19" x2="17" y2="19" stroke="#9CA3AF" stroke-width="0.8" opacity="0.6"/>
+</svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" rx="3" fill="#FF69B4"/>
+  
+  <!-- SIT Text -->
+  <text x="16" y="21" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">SIT</text>
+  
+  <!-- Small icon decoration -->
+  <circle cx="26" cy="6" r="4" fill="#FFFFFF" opacity="0.3"/>
+</svg>

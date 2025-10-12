@@ -1,173 +1,90 @@
-// Patch20_SIT_BaseRecovery_01_TC14a8 -Solstice Test UNREGISTERED
-// Test Protocol: Base Recovery Test Sequence
-// Author: Test Engineer
-// Date: 2024
+// CScriptSIT Test File
+// This file tests syntax highlighting for .sit files
 
+/* 
+   Multi-line comment block
+   Testing comment highlighting
+*/
+$sit_testreportstart "Test Report Title"
+// Test Case Start
+$sit_testcasestart "Sample Test Case"
+$sit_testcaseinitcond "Initialize test environment"
+$sit_TestCaseFailOnWfcFailure False 
+// Control Flow Keywords
+$sit_if condition == Yes
+    $cs_print "Condition is true"
+    $sit_delay 1000
+$sit_ifelse
+    $cs_echo "Condition is false"
+$sit_ifend
+
+// Loop Example
+$sit_loop 5
+    $cs_print "Loop iteration"
+    $sit_delaytime 500
+$sit_loopend
+
+// Test Steps
+$sit_teststepstart "Step 1: Verify Connection"
+    $sit_verifyresult "Connection established"
+    $sit_checkbits 0xFF 0x0F
+$sit_teststepend
+
+// String Examples
+$sit_print "This is a test string with \"escaped quotes\""
+$sit_addnote "Test note: checking functionality"
+
+// Boolean Values
+result = Yes
+continue_test = No
+optional = none
+
+// Logic Analyzer
+$sit_LogicAnalyzerStart 
+$sit_LogicAnalyzerConfigure "channel1"
+$sit_delay 2000
+$sit_LogicAnalyzerStop
+$sit_LogicAnalyzerSave 
+
+// BLE Analyzer
+$sit_bleanalyzerstart MDC_TEST_CASE
+$sit_runscript INPUT.txt, OUTPUT.txt,5000
+$sit_runscript None, OUTPUT.txt,5000
+$sit_procedure MDC_TEST_CASE.sit
+$sit_waitforuseraction "Press button to continue"
+$sit_BleAnalyzerStop
+
+// Manufacturing Data
+$sit_mfgdataread "serial_number"
+$sit_mfgdatawrite "calibration_data" 0x1234
+$sit_mfgdatasetvar calValue 100
+$sit_checktestresulteq #22, !nfc.gpi.gpidata.CurrentState
+// Verification
+$sit_verifyresultpending "Waiting for result"
+$sit_checktestresulteq expected actual
+$sit_comparebyteseq data1 data2
+
+$sit_BleAnalyzerStop
+
+// Utility Functions
+$sit_clear
+$sit_yesno "Do you want to continue?"
+$sit_getpassfailfromuser "Did the LED turn on?"
+$sit_waitforlifecount 10
+
+// Documentation
+$sit_materials "Equipment: Oscilloscope, Multimeter"
+$sit_additionalmaterials "Cables, Power supply"
+$sit_estefffort "30 minutes"
+$sit_traceability "REQ-001, REQ-002"
+
+
+
+// Special Keywords
 completions:
 
-$sit_TestReportStart "Patch20_SDS_Section_8.5", "Patch20_SDD_Section_10.2.4"
-$sit_TestCaseStart "Follow PR_PDU_TO_MANUFACTURING_STATE to move the Patch to Manufacturing State"
+// Test Case End
+$sit_testcaseend
 
-// Test Setup and Configuration
-$sit_traceability "Patch28_SDS_Section_8.5", "Patch28_SDD_Section_10.2.4"
-$sit_TestUserAction "Follow PR_ASIC_SPL_ANALYZER_SETUP procedure with SPI lines connected to Logic Analyzer"
-$sit_LogicAnalyzerConfigure default_withBAIT.logcfg
-$sit_WaitForUserAction "Follow PR_ASIC_BOR (step a to h) to set up Power analyzer", 18000
-
-// Step 1: Send MFG Get Patch Info Command
-$sit_TestStepStart "Send MFG Get Patch Info Command to read the Patch State."
-    $sit_RunScript NFC_Get_GetPatchInfo.txt, none, 5000
-    $sit_VerifyResult "Sensor State is 0 (Manufacturing) and mode is 0"
-    $sit_CheckTestResultEq 0x00, !nfc.mqpb.mqpbData.currentStateAndMode
-    $sit_TestUserAction "Run NFC_Read_SystemEventLog_IMRFGState.txt"
-$sit_TestStepEnd
-$sit_
-
-// Step 2: Load PTU Output and Verify
-$sit_TestStepStart "Verify PTU output file contains expected data"
-    $sit_LoadPtuOutputFile NFC_Read_SystemEventLog_IMRFGState.txt
-    $sit_RunScript NFC_Read_SystemEventLog_IMRFGState.txt, none, 30000
-    $sit_LoadPtuOutputFile NFC_Read_SystemEventLog.txt
-    
-    // Verify event validity
-    $sit_VerifyResult "16th byte of the only valid event is 00"
-    $sit_CompareByteEq 0x00, !file.dat.recordList.[0].byteArray.[16], 1
-    $sit_VerifyResult "Next byte of the next event record is FF"
-    $sit_CompareByteEq 0xFF, !file.dat.recordList.[1].byteArray.[16], 1
-$sit_TestStepEnd
-
-// Step 3: Add Note and Execute Result
-$sit_TestStepStart "Execute RESULT_OK indicates, Sensor State is Manufacturing"
-    $sit_AddNote EXPECTED_RESULT, "indicates, Sensor State is Manufacturing"
-$sit_TestStepEnd
-
-// Step 4: Verify Patch Operation with ASIC Short Reset
-$sit_TestStepStart "Verify Patch operation when ASIC gets short reset in NFC Loader and Firmware Patch"
-    $sit_TestUserAction "Run NFC_PwrCntl1_NFCloader.txt for putting patch to FW Upgrade and boot loader state"
-    $sit_RunScript NFC_PwrCntl1_NFCLoader.txt, none, 18000
-    $sit_Procedure NFC_PwrCntl1_NFCLoader.txt
-    
-    // Run MFG GPI script
-    $sit_RunScript NFC_MFG_GPI_0.txt, none, 6000
-    $sit_VerifyResult "Sensor State is 0 (Manufacturing) and mode is 3"
-    $sit_CheckTestResultEq 0x30, /nfc.mqpb.mqpbData.currentStateAndMode
-$sit_TestStepEnd
-
-// Step 5: Test User Action with Minutes
-$sit_TestStepStart "Return the SPI4 cable to the next minute and save as Patch20_SIT_Reset_State"
-    $sit_LogicAnalyzerStart "Patch28_SIT_RstRecovery_01_TC14_01.ola"
-    $sit_TestUserAction "Execute PR_ASIC_BOR_R to perform recoverable FW_ASIC_BOR"
-    $sit_Procedure PR_ASIC_BOR_R.sit
-    $sit_Delay 60000
-    $sit_LogicAnalyzerStop
-$sit_TestStepEnd
-
-// Step 6: Run System Event Log
-$sit_TestStepStart "Run the script NFC_Read_SystemEventLog_IMRFGState.txt"
-    $sit_RunScript NFC_Read_SystemEventLog_IMRFGState.txt, none, 30000
-    $sit_LoadPtuOutputFile NVML5_SystemEventLog.txt
-    
-    // Verify 6th byte
-    $sit_VerifyResult "6th byte of the last valid event is 10"
-    $sit_CompareByteEq 0x10, /file.dat.recordList.[1].byteArray.[6], 1
-    $sit_CompareByteEq 0x10, /file.dat.recordList.[2].byteArray.[6], (0x10)
-    $sit_AddNote EXPECTED_RESULT, "Indicates, Event FW_UPGRADE_START (0x10)"
-$sit_TestStepEnd
-
-// Step 7: Logic Analyzer Operations
-$sit_TestStepStart "Configure and capture logic analyzer data"
-    $sit_LogicAnalyzerConfigure "config_ble.logcfg"
-    $sit_LogicAnalyzerStart
-    $sit_Delay 5000
-    $sit_LogicAnalyzerSave "capture_data.txt"
-    $sit_LogicAnalyzerStop
-    
-    // BLE Analyzer
-    $sit_bleanalyzerstart
-    $sit_Delay 3000
-    $sit_bleanlayzerstop
-$sit_TestStepEnd
-
-// Step 8: Bit Operations and Comparisons
-$sit_TestStepStart "Perform bit checks and file comparisons"
-    $sit_isbitset 0x04
-    $sit_isbitclear 0x08
-    $sit_checkbits 0x01, 0x01
-    
-    $sit_compareptfilecontenteq "expected_output.txt", "actual_output.txt"
-    $sit_comparebyteseq 0x01, 0x02, 0x03
-$sit_TestStepEnd
-
-// Step 9: Manufacturing Data Operations
-$sit_TestStepStart "Read and write manufacturing data"
-    $sit_mfgdataread "sensor_config"
-    $sit_mfgdatawrite "calibration_data", 0x1234
-    $sit_mfgdatasetvar "device_id", "SN123456"
-    $sit_mfgdatarestoredefault
-$sit_TestStepEnd
-
-// Step 10: Loop with Conditional
-$sit_TestStepStart "Execute loop with conditional checks"
-    $sit_scripttimestart
-    
-    $sit_loop 3
-        $sit_testsubstepstart "Iteration check"
-        $sit_print "Running iteration..."
-        $sit_Delay 1000
-        
-        $sit_ifdef DEBUG_MODE
-            $cs_echo "Debug mode active"
-            $sit_VerifyResult "Debug configuration enabled"
-        $sit_ifdef_else
-            $cs_echo "Production mode"
-        $sit_ifdef_end
-        
-        $sit_delaytime 500
-    $sit_loopend
-    
-    $sit_scripttimestop
-    $sit_starttimer
-$sit_TestStepEnd
-
-// Step 11: User Input and Verification
-$sit_TestStepStart "Get user confirmation and input"
-    $sit_input "Enter test parameter value: "
-    $sit_yesno "Continue with the test?"
-    
-    $sit_waitforlifecount 100
-    $sit_waitforoneminnot1
-    $sit_waitforuseraction "Verify the sensor response"
-    
-    $sit_getpassfailfromuser "Did the sensor respond correctly?"
-    $sit_getpassfailfromuserwithinput "Enter pass/fail with comments: "
-$sit_TestStepEnd
-
-// Step 12: CS Commands
-$sit_TestStepStart "Execute CS commands for logging"
-    $cs_cslog "Test execution in progress"
-    $cs_echo "Current test phase completed"
-    $cs_print "Test status: In Progress"
-    $cs_pause
-$sit_TestStepEnd
-
-// Step 13: Final Verification
-$sit_TestStepStart "Final verification and cleanup"
-    $sit_VerifyResult "All test steps completed successfully"
-    
-    $sit_if test_result == Yes
-        $cs_print "TEST PASSED"
-        $sit_verifyresult "Test completed with expected results"
-    $sit_ifelse
-        $cs_print "TEST FAILED"
-        $sit_verifyresultpending "Test requires manual verification"
-    $sit_ifend
-    
-    $sit_clear
-    $sit_clearpatchdata
-$sit_TestStepEnd
-
-// Test Completion
-$sit_TestCaseEnd
-$sit_TestReportEnd
-
-$sit_exit
+// Script Exit
+$sit_exit 0
