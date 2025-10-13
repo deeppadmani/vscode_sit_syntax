@@ -150,157 +150,221 @@ To get the full CScriptSIT color scheme, add custom token colors to your VS Code
 
 ```json
 {
-  "workbench.colorTheme": "Dobri Next -C09- Eve",
-  "editor.tokenColorCustomizations": {
-    "[Dobri Next -C09- Eve]": {
-      "textMateRules": [
-        {
-          "scope": "comment.line.double-slash.cscriptsit",
-          "settings": {
-            "foreground": "#6A9955",
-            "fontStyle": "italic"
-          }
-        },
-        {
-          "scope": "comment.block.cscriptsit",
-          "settings": {
-            "foreground": "#6A9955",
-            "fontStyle": "italic"
-          }
-        },
-        {
-          "scope": "string.quoted.double.cscriptsit",
-          "settings": {
-            "foreground": "#CE9178"
-          }
-        },
-        {
-          "scope": "constant.numeric.hex.cscriptsit",
-          "settings": {
-            "foreground": "#B5CEA8"
-          }
-        },
-        {
-          "scope": "constant.numeric.decimal.cscriptsit",
-          "settings": {
-            "foreground": "#B5CEA8"
-          }
-        },
-        {
-          "scope": "keyword.control.bold.cscriptsit",
-          "settings": {
-            "foreground": "#C586C0",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "entity.name.function.bold.teststart.cscriptsit",
-          "settings": {
-            "foreground": "#FF69B4",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "entity.name.function.bold.testend.cscriptsit",
-          "settings": {
-            "foreground": "#FF69B4",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "entity.name.function.bold.verification.cscriptsit",
-          "settings": {
-            "foreground": "#FF69B4",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "entity.name.function.bold.analyzer.cscriptsit",
-          "settings": {
-            "foreground": "#FF69B4",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "entity.name.function.bold.action.cscriptsit",
-          "settings": {
-            "foreground": "#FF69B4",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "entity.name.function.bold.data.cscriptsit",
-          "settings": {
-            "foreground": "#FF69B4",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "entity.name.function.bold.utility.cscriptsit",
-          "settings": {
-            "foreground": "#FF69B4",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "entity.name.function.bold.mfg.cscriptsit",
-          "settings": {
-            "foreground": "#FF69B4",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "entity.name.function.bold.cs.cscriptsit",
-          "settings": {
-            "foreground": "#FF69B4",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "constant.language.boolean.cscriptsit",
-          "settings": {
-            "foreground": "#DCDCAA",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "string.quoted.double.bold.cscriptsit",
-          "settings": {
-            "foreground": "#CE9178",
-            "fontStyle": "bold"
-          }
-        },
-        {
-          "scope": "markup.italic.hash-line.cscriptsit",
-          "settings": {
-            "foreground": "#DCDCAA",
-            "fontStyle": "italic"
-          }
-        },
-        {
-          "scope": "variable.special.exclamation.cscriptsit",
-          "settings": {
-            "foreground": "#DCDCAA",
-            "fontStyle": "italic"
-          }
-        },
-        {
-          "scope": "variable.special.argument.cscriptsit",
-          "settings": {
-            "foreground": "#DCDCAA",
-            "fontStyle": "italic"
-          }
-        },
-        {
-          "scope": "entity.name.filename.cscriptsit",
-          "settings": {
-            "foreground": "#F44747",
-            "fontStyle": "bold italic"
-          }
+    "workbench.colorTheme": "Dobri Next -C09- Eve",
+    "code-runner.runInTerminal": true,
+    "java.completion.favoriteStaticMembers": [
+        "org.junit.Assert.*",
+        "org.junit.Assume.*",
+        "org.junit.jupiter.api.Assertions.*",
+        "org.junit.jupiter.api.Assumptions.*",
+        "org.junit.jupiter.api.DynamicContainer.*",
+        "org.junit.jupiter.api.DynamicTest.*",
+        "org.mockito.Mockito.*",
+        "org.mockito.ArgumentMatchers.*",
+        "org.mockito.Answers.*"
+    ],
+    "workbench.iconTheme": "dobri-theme-icons",
+    "workbench.sideBar.location": "right",
+    "workbench.editorAssociations": {
+        "*.docx": "default"
+    },
+    "makefile.configureOnOpen": true,
+    "C_Cpp.errorSquiggles": "enabled",
+    "git.autofetch": true,
+    "remote.SSH.remotePlatform": {
+        "84.247.178.164": "linux",
+        "192.168.137.106": "linux",
+        "192.168.137.31": "linux",
+        "192.168.1.183": "linux",
+        "192.168.1.182": "linux"
+    },
+    "editor.tokenColorCustomizations": {
+        "[Dobri Next -C09- Eve]": {
+            "textMateRules": [
+                {
+                    "scope": "comment.line.double-slash.cscriptsit",
+                    "settings": {
+                        "foreground": "#6A9955",
+                        "fontStyle": "italic"
+                    }
+                },
+                {
+                    "scope": "comment.block.cscriptsit",
+                    "settings": {
+                        "foreground": "#6A9955",
+                        "fontStyle": "italic"
+                    }
+                },
+                {
+                    "scope": "string.quoted.double.cscriptsit",
+                    "settings": {
+                        "foreground": "#CE9178"
+                    }
+                },
+                {
+                    "scope": "constant.character.escape.cscriptsit",
+                    "settings": {
+                        "foreground": "#D7BA7D"
+                    }
+                },
+                {
+                    "scope": "constant.numeric.hex.cscriptsit",
+                    "settings": {
+                        "foreground": "#B5CEA8"
+                    }
+                },
+                {
+                    "scope": "constant.numeric.decimal.cscriptsit",
+                    "settings": {
+                        "foreground": "#B5CEA8"
+                    }
+                },
+                {
+                    "scope": "keyword.control.bold.cscriptsit",
+                    "settings": {
+                        "foreground": "#C586C0",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "entity.name.function.bold.test.cscriptsit",
+                    "settings": {
+                        "foreground": "#C586C0",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "entity.name.function.bold.testend.cscriptsit",
+                    "settings": {
+                        "foreground": "#C586C0",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "entity.name.function.bold.teststart.cscriptsit",
+                    "settings": {
+                        "foreground": "#C586C0",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "entity.name.function.bold.verification.cscriptsit",
+                    "settings": {
+                        "foreground": "#C586C0",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "entity.name.function.bold.analyzer.cscriptsit",
+                    "settings": {
+                        "foreground": "#C586C0",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "entity.name.function.bold.action.cscriptsit",
+                    "settings": {
+                        "foreground": "#C586C0",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "entity.name.function.bold.data.cscriptsit",
+                    "settings": {
+                        "foreground": "#C586C0",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "entity.name.function.bold.utility.cscriptsit",
+                    "settings": {
+                        "foreground": "#C586C0",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "entity.name.function.bold.mfg.cscriptsit",
+                    "settings": {
+                        "foreground": "#C586C0",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "entity.name.function.bold.cs.cscriptsit",
+                    "settings": {
+                        "foreground": "#C586C0",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "keyword.operator.comparison.cscriptsit",
+                    "settings": {
+                        "foreground": "#D4D4D4"
+                    }
+                },
+                {
+                    "scope": "keyword.operator.logical.cscriptsit",
+                    "settings": {
+                        "foreground": "#D4D4D4"
+                    }
+                },
+                {
+                    "scope": "keyword.operator.assignment.cscriptsit",
+                    "settings": {
+                        "foreground": "#D4D4D4"
+                    }
+                },
+                {
+                    "scope": "constant.language.boolean.cscriptsit",
+                    "settings": {
+                        "foreground": "#dc6666",
+                        "fontStyle": "bold italic"
+                    }
+                },
+                {
+                    "scope": "keyword.other.special.cscriptsit",
+                    "settings": {
+                        "foreground": "#C586C0",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "variable.other.cscriptsit",
+                    "settings": {
+                        "foreground": "#9CDCFE"
+                    }
+                },
+                {
+                    "scope": "string.quoted.double.bold.cscriptsit",
+                    "settings": {
+                        "foreground": "#CE9178",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "markup.italic.hash-line.cscriptsit",
+                    "settings": {
+                        "foreground": "#cccc12",
+                        "fontStyle": "italic"
+                    }
+                },
+                {
+                    "scope": "variable.special.argument.cscriptsit",
+                    "settings": {
+                        "foreground": "#cccc12",
+                        "fontStyle": "italic"
+                    }
+                },
+                {
+                    "scope": "entity.name.filename.cscriptsit",  
+                    "settings": {
+                        "foreground": "#dc6666",
+                        "fontStyle": "italic"
+                    }
+                }
+            ]
         }
-      ]
     }
-  }
 }
 ```
 
