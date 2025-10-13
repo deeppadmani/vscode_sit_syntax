@@ -47,9 +47,9 @@ $sit_LogicAnalyzerStop
 $sit_LogicAnalyzerSave 
 
 // BLE Analyzer
-$sit_bleanalyzerstart MDC_TEST_CASE
-$sit_runscript INPUT.txt, OUTPUT.txt,5000
-$sit_runscript None, OUTPUT.txt,5000
+$sit_bleanalyzerstart MDC_MDCMDCMDCSSSSFFFSVdDZVAASS123_
+$sit_runscript INPUT_byjv.txt, OUTPUT.txt,5000
+$sit_runscript None, OUTPUTa_123.txt,5000
 $sit_procedure MDC_TEST_CASE.sit
 $sit_waitforuseraction "Press button to continue"
 $sit_BleAnalyzerStop

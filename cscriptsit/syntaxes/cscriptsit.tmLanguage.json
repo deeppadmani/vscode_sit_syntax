@@ -95,11 +95,7 @@
     "special-variables": {
       "patterns": [
         {
-          "name": "variable.special.argument.cscriptsit",
-          "match": "#[0-9A-Fa-f]+"
-        },
-        {
-          "name": "variable.special.argument.cscriptsit",
+          "name": "variable.special.exclamation.cscriptsit",
           "match": "![a-zA-Z_][a-zA-Z0-9_.]*"
         }
       ]
@@ -108,7 +104,7 @@
       "patterns": [
         {
           "name": "entity.name.filename.cscriptsit",
-          "match": "\\b[A-Z][A-Z0-9_\\-]*(?:\\.[a-zA-Z0-9]+)?\\b"
+          "match": "\\b[A-Za-z][A-Za-z0-9_\\-]*(?:\\.[a-zA-Z0-9]+)?\\b"
         }
       ]
     },
@@ -167,7 +163,7 @@
         },
         {
           "name": "entity.name.function.bold.data.cscriptsit",
-          "match": "(?i)\\$(sit_estefffort|sit_revieweffort)\\b"
+          "match": "(?i)\\$(sit_esteffort|sit_revieweffort)\\b"
         },
         {
           "name": "entity.name.function.bold.utility.cscriptsit",
