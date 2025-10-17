@@ -24,7 +24,7 @@ const keywords = [
   { label: '$sit_TestSubStepStart', kind: vscode.CompletionItemKind.Function, detail: 'Test Management', documentation: 'Start test substep' },
   { label: '$sit_TestUserAction', kind: vscode.CompletionItemKind.Function, detail: 'Test Management', documentation: 'User action in test' },
   { label: '$sit_TestStrategy', kind: vscode.CompletionItemKind.Function, detail: 'Test Management', documentation: 'Define test strategy' },
-  { label: '$sit_TestCaseFailOnWfcFailure', kind: vscode.CompletionItemKind.Function, detail: 'Test Management', documentation: 'Fail on WFC failure' },
+  { label: '$sit_TestCaseFailOnNfcFailure', kind: vscode.CompletionItemKind.Function, detail: 'Test Management', documentation: 'Fail on NFC failure' },
   
   // Verification
   { label: '$sit_VerifyResult', kind: vscode.CompletionItemKind.Function, detail: 'Verification', documentation: 'Verify test result' },
@@ -32,7 +32,7 @@ const keywords = [
   { label: '$sit_CheckBits', kind: vscode.CompletionItemKind.Function, detail: 'Verification', documentation: 'Check bit values' },
   { label: '$sit_CheckTestResultEq', kind: vscode.CompletionItemKind.Function, detail: 'Verification', documentation: 'Check if test result equals' },
   { label: '$sit_CompareBytesEq', kind: vscode.CompletionItemKind.Function, detail: 'Verification', documentation: 'Compare byte sequence' },
-  { label: '$sit_ComparePtFileContentEq', kind: vscode.CompletionItemKind.Function, detail: 'Verification', documentation: 'Compare PT file content' },
+  { label: '$sit_ComparePtuFileContentEq', kind: vscode.CompletionItemKind.Function, detail: 'Verification', documentation: 'Compare PTU file content' },
   
   // Logic Analyzer
   { label: '$sit_LogicAnalyzerStart', kind: vscode.CompletionItemKind.Function, detail: 'Logic Analyzer', documentation: 'Start logic analyzer' },

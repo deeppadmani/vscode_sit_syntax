@@ -394,7 +394,7 @@ To get the full CScriptSIT color scheme, add custom token colors to your VS Code
 ### Verification (6) - Pink Bold
 - `$sit_VerifyResult`, `$sit_VerifyResultPending`
 - `$sit_CheckBits`, `$sit_CheckTestResultEq`
-- `$sit_CompareBytesEq`, `$sit_ComparePtFileContentEq`
+- `$sit_CompareBytesEq`, `$sit_ComparePtuFileContentEq`
 
 ### Logic & BLE Analyzer (6) - Pink Bold
 - `$sit_LogicAnalyzerStart`, `$sit_LogicAnalyzerStop`

@@ -10,6 +10,9 @@
       "include": "#hash-line"
     },
     {
+      "include": "#hash-numbers"
+    },
+    {
       "include": "#strings"
     },
     {
@@ -96,7 +99,15 @@
       "patterns": [
         {
           "name": "variable.special.exclamation.cscriptsit",
-          "match": "![a-zA-Z_][a-zA-Z0-9_.]*"
+          "match": "![^,\\s]+"
+        }
+      ]
+    },
+    "hash-numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hash.cscriptsit",
+          "match": "#[^,\\s]+"
         }
       ]
     },
@@ -147,7 +158,7 @@
         },
         {
           "name": "entity.name.function.bold.testend.cscriptsit",
-          "match": "(?i)\\$(sit_testcaseend|sit_testreportend|sit_teststepend|sit_TestCaseFailOnWfcFailure)\\b"
+          "match": "(?i)\\$(sit_testcaseend|sit_testreportend|sit_teststepend|sit_TestCaseFailOnNfcFailure)\\b"
         },
         {
           "name": "entity.name.function.bold.verification.cscriptsit",
