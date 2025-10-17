@@ -356,6 +356,20 @@ To get the full CScriptSIT color scheme, add custom token colors to your VS Code
                     }
                 },
                 {
+                    "scope": "variable.special.exclamation.cscriptsit",
+                    "settings": {
+                        "foreground": "#cccc12",
+                        "fontStyle": "italic"
+                    }
+                },
+                {
+                    "scope": "constant.numeric.hash.cscriptsit",
+                    "settings": {
+                        "foreground": "#cccc12",
+                        "fontStyle": "italic"
+                    }
+                },
+                {
                     "scope": "entity.name.filename.cscriptsit",  
                     "settings": {
                         "foreground": "#dc6666",

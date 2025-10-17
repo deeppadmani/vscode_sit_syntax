@@ -58,7 +58,7 @@ $sit_BleAnalyzerStop
 $sit_mfgdataread "serial_number"
 $sit_mfgdatawrite "calibration_data" 0x1234
 $sit_mfgdatasetvar calValue 100
-$sit_checktestresulteq #22, !nfc.gpi.gpidata.CurrentState
+$sit_checktestresulteq #22, !nfc.gpi.gpidata.CurrentState 
 // Verification
 $sit_verifyresultpending "Waiting for result"
 $sit_checktestresulteq expected actual
@@ -75,7 +75,7 @@ $sit_waitforlifecount 10
 // Documentation
 $sit_materials "Equipment: Oscilloscope, Multimeter"
 $sit_additionalmaterials "Cables, Power supply"
-$sit_estefffort "30 minutes"
+$sit_estefffort "30 mnutes"
 $sit_traceability "REQ-001, REQ-002"
 
 
